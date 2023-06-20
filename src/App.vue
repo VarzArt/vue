@@ -1,30 +1,47 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div class="test">
+    <loginWindow />
+  </div>
 </template>
 
+<script>
+export default {};
+</script>
+
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+@import url(./styles.scss);
+@font-face {
+  font-family: "Cyber";
+  src: url(../assets/fonts/Technos-PKDZP.otf);
+}
+@font-face {
+  font-family: "Equinox";
+  src: url(../assets/fonts/Equinox.otf);
 }
 
-nav {
-  padding: 30px;
+.test > * {
+  margin-top: 1rem;
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+.test {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: url(../assets/images/wallpaperflare.com_wallpaper.jpg) no-repeat
+    center;
+  background-size: cover;
+  position: relative;
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+  &::after {
+    content: "";
+    width: 100%;
+    height: 30%;
+    position: absolute;
+    background: linear-gradient(to top, black, transparent);
+    bottom: 0;
   }
 }
 </style>
