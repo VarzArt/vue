@@ -1,11 +1,20 @@
 <template>
-  <div class="test">
+  <div class="main">
+    <canvas ref="canvas"></canvas>
     <loginWindow />
   </div>
 </template>
 
 <script>
-export default {};
+import octopus from "./octopus";
+export default {
+  data() {
+    return {};
+  },
+  mounted() {
+    octopus(this.$refs.canvas);
+  },
+};
 </script>
 
 <style lang="scss">
@@ -19,29 +28,15 @@ export default {};
   src: url(../assets/fonts/Equinox.otf);
 }
 
-.test > * {
-  margin-top: 1rem;
-}
-
-.test {
+.main {
   width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: url(../assets/images/wallpaperflare.com_wallpaper.jpg) no-repeat
-    center;
-  background-size: cover;
   position: relative;
-
-  &::after {
-    content: "";
-    width: 100%;
-    height: 30%;
-    position: absolute;
-    background: linear-gradient(to top, black, transparent);
-    bottom: 0;
-  }
+  background: url(../assets/images/main_background.png);
+  // overflow-y: hidden;
 }
 </style>
