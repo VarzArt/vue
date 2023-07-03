@@ -2,11 +2,12 @@
   <div class="main">
     <canvas ref="canvas"></canvas>
     <loginWindow />
+    <!-- <MyLoader /> -->
   </div>
 </template>
 
 <script>
-import octopus from "./octopus";
+import octopus from "@/helpers/octopus.js";
 export default {
   data() {
     return {};
@@ -18,7 +19,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import url(./styles.scss);
+@import url(./styles/styles.scss);
 @font-face {
   font-family: "Cyber";
   src: url(../assets/fonts/Technos-PKDZP.otf);
@@ -26,6 +27,10 @@ export default {
 @font-face {
   font-family: "Equinox";
   src: url(../assets/fonts/Equinox.otf);
+}
+@font-face {
+  font-family: "Matrix";
+  src: url(../assets/fonts/matrix-vs-miltown.otf);
 }
 
 .main {

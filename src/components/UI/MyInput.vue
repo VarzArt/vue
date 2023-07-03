@@ -1,7 +1,7 @@
 <template>
   <form>
     <input
-      type="text"
+      ref="input"
       name="userLogin"
       class="inputLogin"
       id="nme"
@@ -19,6 +19,13 @@ export default {
   name: "MyInput",
   props: {
     label: {
+      type: String,
+      required: true,
+      validator(value) {
+        return typeof value === "string" ? true : false;
+      },
+    },
+    type: {
       type: String,
       required: true,
       validator(value) {

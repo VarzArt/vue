@@ -1,6 +1,11 @@
 <template>
   <div class="main">
-    <MyInput v-for="label in labels" :key="label.id" :label="label.label" />
+    <MyInput
+      v-for="label in labels"
+      :key="label.id"
+      :label="label.label"
+      :type="label.type"
+    />
     <MyButton />
   </div>
 </template>
@@ -11,8 +16,8 @@ export default {
   data() {
     return {
       labels: [
-        { id: 1, label: "What's your login?" },
-        { id: 2, label: "What's your password?" },
+        { id: 1, label: "What's your login?", type: "text" },
+        { id: 2, label: "What's your password?", type: "password" },
       ],
     };
   },
