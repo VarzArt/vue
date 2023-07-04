@@ -1,17 +1,24 @@
 <template>
-  <form>
+  <div>
     <input
       ref="input"
       name="userLogin"
       class="inputLogin"
-      id="nme"
       required
       autocomplete="off"
     />
     <label for="userLogin"
       ><span>{{ label }}</span></label
     >
-  </form>
+    <button
+      class="showPassword"
+      v-if="this.type === 'password'"
+      @mousedown="show"
+      @mouseup="hide"
+    >
+      <img src="../../../assets/images/Eye.svg" alt="Show password" />
+    </button>
+  </div>
 </template>
 
 <script>
@@ -33,12 +40,28 @@ export default {
       },
     },
   },
+  mounted() {
+    if (this.type === "password") {
+      this.$refs.input.type = "password";
+    } else {
+      this.$refs.input.type = "text";
+    }
+  },
+  methods: {
+    show() {
+      this.$refs.input.type = "text";
+    },
+    hide() {
+      this.$refs.input.type = "password";
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-form {
+div {
   z-index: 1;
+  position: relative;
 }
 
 input,
@@ -56,6 +79,19 @@ input:focus {
   outline: 0;
 }
 /* inputLogin */
+
+button {
+  position: absolute;
+  right: -10%;
+  width: 2rem;
+  height: 2rem;
+  top: 15%;
+  transform: translate(-85%);
+
+  img {
+    fill: #05d9e8;
+  }
+}
 
 .inputLogin {
   font-size: 2rem;
@@ -94,7 +130,7 @@ input:focus {
   }
 
   &:focus + label {
-    width: 80%;
+    width: 90%;
     border-color: rgba(255, 42, 109, 0.7);
 
     & > span {

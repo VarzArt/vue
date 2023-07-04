@@ -1,17 +1,11 @@
 <template>
-  <div class="mainBtn">
-    <!-- <img
-      src="../../../assets/images/1904671-arrow-arrow-right-change-direction-next-page-right_122521.svg"
-      width="36"
-      height="36"
-      alt=""
-    /> -->
+  <button class="mainBtn">
     <span class="mainBtn__fullSpan">
       <span class="mainBtn__fullSpan_firstLetter">L</span>
       <span class="mainBtn__fullSpan_faltyLetter">o</span>
       <span class="mainBtn__fullSpan_end">gin</span></span
     >
-  </div>
+  </button>
 </template>
 
 <script>
