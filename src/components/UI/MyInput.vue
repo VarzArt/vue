@@ -87,6 +87,9 @@ button {
   height: 2rem;
   top: 15%;
   transform: translate(-85%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
 
   img {
     fill: #05d9e8;
@@ -149,6 +152,11 @@ button {
       font-size: 1.5rem;
       color: #05d9e8;
     }
+  }
+
+  &:valid ~ button {
+    opacity: 1;
+    pointer-events: all;
   }
 
   &:invalid {
