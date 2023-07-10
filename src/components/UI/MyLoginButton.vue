@@ -1,9 +1,9 @@
 <template>
-  <button class="mainBtn">
+  <button class="mainBtn" ref="main">
     <span class="mainBtn__fullSpan">
-      <span class="mainBtn__fullSpan_firstLetter">L</span>
-      <span class="mainBtn__fullSpan_faltyLetter">o</span>
-      <span class="mainBtn__fullSpan_end">gin</span></span
+      <span class="mainBtn__fullSpan_firstLetter">{{ first }}</span>
+      <span class="mainBtn__fullSpan_faltyLetter">{{ second }}</span>
+      <span class="mainBtn__fullSpan_end">{{ third }}</span></span
     >
   </button>
 </template>
@@ -11,11 +11,49 @@
 <script>
 export default {
   name: "MyButton",
+  props: {
+    first: {
+      type: String,
+      required: true,
+      validator(value) {
+        return typeof value === "string" ? true : false;
+      },
+    },
+    second: {
+      type: String,
+      required: true,
+      validator(value) {
+        return typeof value === "string" ? true : false;
+      },
+    },
+    third: {
+      type: String,
+      required: true,
+      validator(value) {
+        return typeof value === "string" ? true : false;
+      },
+    },
+  },
+  mounted() {
+    if (this.first === "L") {
+      this.$refs.main.classList.add("small");
+    } else {
+      this.$refs.main.classList.add("medium");
+    }
+  },
 };
 </script>
 
 <style scoped lang="scss">
 $mainColor: hsl(186 100% 69%);
+
+.small {
+  width: 15rem;
+}
+
+.medium {
+  width: 18rem;
+}
 .mainBtn {
   font-family: "Cyber", sans-serif;
   padding: 0.75rem;
@@ -27,7 +65,6 @@ $mainColor: hsl(186 100% 69%);
   transition: 0.5s;
   perspective: 2rem;
   box-shadow: inset 0px 0px 0.5rem 0px $mainColor, 0px 0px 0.5rem 0px $mainColor;
-  width: 15rem;
   animation: border-flicker 2s linear infinite;
   cursor: pointer;
   color: $mainColor;

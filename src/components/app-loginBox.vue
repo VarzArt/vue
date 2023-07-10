@@ -9,7 +9,11 @@
       :label="label.label"
       :type="label.type"
     />
-    <MyButton />
+    <MyButton
+      :first="button.first"
+      :second="button.second"
+      :third="button.third"
+    />
   </div>
 </template>
 
@@ -22,6 +26,7 @@ export default {
         { id: 1, label: "What's your login?", type: "text" },
         { id: 2, label: "What's your password?", type: "password" },
       ],
+      button: { first: "L", second: "o", third: "gin" },
     };
   },
   methods: {

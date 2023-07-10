@@ -1,7 +1,8 @@
 <template>
   <div class="main">
     <canvas ref="canvas"></canvas>
-    <loginWindow />
+    <!-- <loginWindow /> -->
+    <singUpPage />
     <!-- <MyLoader /> -->
   </div>
 </template>
